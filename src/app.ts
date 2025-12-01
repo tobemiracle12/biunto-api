@@ -25,7 +25,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://localhost:3001',
-      'https://schoolingsocial.netlify.app',
+      'archination.netlify.app',
       'https://schoolingsocial.com',
       'https://schooling-client-v1.onrender.com',
     ],
