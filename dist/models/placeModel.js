@@ -33,47 +33,25 @@ var __importStar = (this && this.__importStar) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Place = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
-const UserSchema = new mongoose_1.Schema({
-    email: {
-        type: String,
-        required: [true, 'Email is required'],
-        unique: [true, 'A user with this email already exists'],
-        match: [/\S+@\S+\.\S+/, 'Please use a valid email address'],
-        lowercase: true,
-    },
-    username: { type: String },
-    phoneNumber: { type: String },
-    picture: { type: String },
-    firstName: { type: String },
-    middleName: { type: String },
-    lastName: { type: String },
-    gender: { type: String },
-    dateOfBirth: { type: Date },
-    occupation: { type: String },
-    originCountry: { type: String },
-    originState: { type: String },
-    originArea: { type: String },
-    residentCountry: { type: String },
-    residentState: { type: String },
-    residentArea: { type: String },
-    address: { type: String },
-    nextOfKinName: { type: String },
-    nextOfKinPhone: { type: String },
-    validID: { type: String },
-    iDType: { type: String },
-    birthCertificate: { type: String },
-    facePassport: { type: String },
-    userLng: { type: Number },
-    userLat: { type: Number },
-    role: { type: String },
-    password: {
-        type: String,
-        required: [true, 'Password is required'],
-        minlength: [6, 'Password must be at least 6 characters long'],
-        select: false,
-    },
-    userStatus: { type: String, default: 'User' },
+const PlaceSchema = new mongoose_1.Schema({
+    landmark: { type: String, default: '' },
+    area: { type: String },
+    state: { type: String, default: '' },
+    country: { type: String, default: '' },
+    countryCapital: { type: String, default: '' },
+    stateCapital: { type: String, default: '' },
+    stateLogo: { type: String, default: '' },
+    continent: { type: String, default: '' },
+    countryFlag: { type: String, default: '' },
+    zipCode: { type: String, default: '' },
+    countryCode: { type: String, default: '' },
+    countrySymbol: { type: String, default: '' },
+    currency: { type: String, default: '' },
+    currencySymbol: { type: String, default: '' },
+    createdAt: { type: Date, default: Date.now },
+}, {
+    timestamps: true,
 });
-exports.User = mongoose_1.default.model('User', UserSchema);
+exports.Place = mongoose_1.default.model('Place', PlaceSchema);

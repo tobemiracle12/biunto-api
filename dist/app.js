@@ -22,6 +22,7 @@ const dotenv_1 = __importDefault(require("dotenv"));
 const errorHandler_1 = require("./utils/errorHandler");
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const propertyRoutes_1 = __importDefault(require("./routes/propertyRoutes"));
+const placeRoutes_1 = __importDefault(require("./routes/placeRoutes"));
 const fileUpload_1 = require("./utils/fileUpload");
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -77,6 +78,7 @@ app.use('/api/v1/s3-delete-file', fileUpload_1.removeFile);
 app.use('/api/v1/s3-presigned-url', fileUpload_1.getPresignedUrl);
 app.use('/api/v1/users', userRoutes_1.default);
 app.use('/api/v1/properties', propertyRoutes_1.default);
+app.use('/api/v1/places', placeRoutes_1.default);
 app.get('/api/v1/user-ip', (req, res) => {
     var _a;
     let ip;

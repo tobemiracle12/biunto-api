@@ -7,6 +7,7 @@ import dotenv from 'dotenv'
 import { handleError } from './utils/errorHandler'
 import userRoutes from './routes/userRoutes'
 import propertyRoutes from './routes/propertyRoutes'
+import placeRoutes from './routes/placeRoutes'
 import { getPresignedUrl, removeFile } from './utils/fileUpload'
 
 dotenv.config()
@@ -71,6 +72,7 @@ app.use('/api/v1/s3-delete-file', removeFile)
 app.use('/api/v1/s3-presigned-url', getPresignedUrl)
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/properties', propertyRoutes)
+app.use('/api/v1/places', placeRoutes)
 app.get('/api/v1/user-ip', (req, res) => {
   let ip: string | undefined
 
